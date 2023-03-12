@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Prioritify.Data.DbContexts;
+using Prioritify.Data.Repositories;
+using Prioritify.Data.Tables;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,10 @@ builder.Services.AddControllersWithViews();
 // Add DbContexts
 var connection = builder.Configuration.GetConnectionString("dbConnection");
 builder.Services.AddDbContext<SystemDbContext>(options => options.UseNpgsql(connection));
+
+// Add Repositories
+builder.Services.AddScoped<ISystemRepository<TbExceptions>, SystemRepository<TbExceptions>>();
+builder.Services.AddScoped<ISystemRepository<TbLogs>, SystemRepository<TbLogs>>();
 
 var app = builder.Build();
 
