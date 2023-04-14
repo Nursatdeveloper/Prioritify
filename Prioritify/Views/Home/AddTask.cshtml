@@ -1,0 +1,28 @@
+﻿@model Prioritify.Data.Tables.TbTasks
+@{
+    
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddTask">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="flName" class="control-label"></label>
+                <input asp-for="flName" class="form-control" />
+                <span asp-validation-for="flName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="flDescription" class="control-label"></label>
+                <input asp-for="flDescription" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="flDeadline" class="control-label"></label>
+                <input asp-for="flDeadline" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

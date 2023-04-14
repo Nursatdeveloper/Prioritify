@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Prioritify.Data\Prioritify.Data.csproj" />
+    <ProjectReference Include="..\Prioritify.Sources\Prioritify.Sources.csproj" />
   </ItemGroup>
 
 </Project>

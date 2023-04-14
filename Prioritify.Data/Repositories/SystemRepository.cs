@@ -1,4 +1,6 @@
-﻿using Prioritify.Data.DbContexts;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Prioritify.Data.DbContexts;
+using Prioritify.Data.Tables;
 using System.Linq.Expressions;
 
 namespace Prioritify.Data.Repositories {
@@ -28,6 +30,14 @@ namespace Prioritify.Data.Repositories {
             } catch(Exception ex) {
                 throw new Exception(ex.Message);
             }
+        }
+    }
+
+    public static class SystemRepositoryExtensions {
+        public static IServiceCollection AddSystemRepositories(this IServiceCollection services) {
+            services.AddScoped<ISystemRepository<TbExceptions>, SystemRepository<TbExceptions>>();
+            services.AddScoped<ISystemRepository<TbLogs>, SystemRepository<TbLogs>>();
+            return services;
         }
     }
 }
